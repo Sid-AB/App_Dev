@@ -1,0 +1,29 @@
+# Python
+*.py[cod]
+__pycache__/
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+env/
+venv/
+
+# Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+db.sqlite3
+
+# Ignore the virtual environment directory
+venv/
+env/
+
+# Static and media files
+staticfiles/
+media/
+
+# OS files
+.DS_Store
