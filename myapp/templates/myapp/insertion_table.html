@@ -6,16 +6,240 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'myapp/css/main.css' %}">
     <link rel="stylesheet" href="{% static 'myapp/fontawesome-free-5.15.4-web/css/all.min.css' %}">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
+  <div class="info-aria">
+    <div>
+      <label for="sector" class="formbold-form-label"> Quelle est le Projet </label>
+      <div class="dropdown">
+        <button class="dropbtn">Selection Projet</button>
+        <div class="dropdown-content">
+            <a href="#">Creation Nouvelle Project</a>
+            <a href="#">BK.2157726</a>
+            <a href="#">FK.12548879</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div>
+      <label for="info-project" class="formbold-form-label"> Le Projecr Selection Est : </label>
+      <input
+      type="text"
+      name="firstname"
+      placeholder="Libelle et Numrero de Projet"
+      id="PR"
+      class="formbold-form-input"
+       disabled/>
+      </div>
+    </div>
+    <div>
+      <label for="sector" class="formbold-form-label"> Quelle sectore le Projet </label>
+    <select input="text" class="formbold-form-input">
+      <option>Selection le Sector de Projet</option>
+      <option>Media</option>
+      <option>Autre</option>
+    </select>
+    </div>
+  </div>
+  <div class="form-aria">
+    <form action="#" method="POST">
+      <div class="formbold-form-step-1 active">
+        <div class="formbold-input-flex">
+          <div>
+              <label for="Numero_Libelle" class="formbold-form-label"> Numero et Libellé d'indidualisation de l'operation </label>
+              <input
+              type="text"
+              name="Numero_Libelle"
+              placeholder="Numero et Libellé d'indidualisation de l'operation"
+              id="Numero_Libelle"
+              class="formbold-form-input"
+              />
+          </div>
+          <div>
+              <label for="Objectif vise" class="formbold-form-label"> Objectif vise de L'Operation </label>
+              <input
+              type="text"
+              name="Objectif vise"
+              placeholder="Objectif vise de L'Operation"
+              id="Objectif"
+              class="formbold-form-input"
+              />
+          </div>
+        </div>
+
+        <div class="formbold-input-flex">
+            <div>
+                <label for="year" class="formbold-form-label"> Annee de Notification par le M F </label>
+                <input 
+                type="date" 
+                name="year" 
+                id="anne_not" 
+                class="formbold-form-input"
+                />
+            </div>
+            <div>
+                <label for="year_indi" class="formbold-form-label"> Annee d'individualisation
+                </label>
+                <input
+                type="date"
+                name="year_indi"
+                id="anne_indi"
+                class="formbold-form-input"
+                />
+            </div>
+        </div>
+        <div class="formbold-input-flex">
+          <div>
+              <label for="year" class="formbold-form-label"> Annee de Notification par le M F </label>
+              <select 
+              name="yearpicker" 
+              id="yearpicker" 
+              class="formbold-form-input"
+              >
+              </select>
+          </div>
+          <div>
+              <label for="AP_init" class="formbold-form-label"> 	
+                A.P initiale
+              </label>
+              <input
+              type="number"
+               step="0.01"
+              name="AP_init"
+              id="AP_init"
+              class="formbold-form-input"
+              />
+          </div>
+      </div>
+        <div>
+            <label for="Contraintes" class="formbold-form-label"> 	
+              Contraintes de la réalisation </label>
+            <input
+            type="text"
+            name="Contraintes"
+            id="cnt"
+            placeholder="Contraintes de la réalisation"
+            class="formbold-form-input"
+            />
+        </div>
+      </div>
+        <button class="formbold-btn">
+            Ajouter
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g clip-path="url(#clip0_1675_1807)">
+            <path d="M10.7814 7.33312L7.20541 3.75712L8.14808 2.81445L13.3334 7.99979L8.14808 13.1851L7.20541 12.2425L10.7814 8.66645H2.66675V7.33312H10.7814Z" fill="white"/>
+            </g>
+            <defs>
+            <clipPath id="clip0_1675_1807">
+            <rect width="16" height="16" fill="white"/>
+            </clipPath>
+            </defs>
+            </svg>
+        </button>
+      </div>
+  </form>
   <div>
     <table>
         <thead>
           <tr>
-            <th><div style="display: flex; justify-content: space-between; align-items: center;">Option <i class="fas fa-filter"></i></div></th>
-            <th><div style="display: flex; justify-content: space-between; align-items: center;">Default <i class="fas fa-filter"></i></div></th>
-            <th><div style="display: flex; justify-content: space-between; align-items: center;">Description <i class="fas fa-filter"></i></div></th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  N°
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Numero et Libellé d'indidualisation de l'operation
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Objectif vise de L'Operation
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Annee de Notification par le M F
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Annee d'individualisation
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  A.P initiale
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  A.P actuelle
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Cumul des A P engageés au 30-09-2023
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Cumul des paiements réelle au 30-09-2023
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Taux de réalisation physique de l'operation au 30-09-2023
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                  Etat d'avancement
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
+            <th>
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span>
+                 Contraintes de la réalisation
+                </span> 
+                <i class="fas fa-filter"></i>
+              </div>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -23,49 +247,146 @@
             <td><strong>showSpeed</strong></td>
             <td>15</td>
             <td>The speed of the show/reveal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>showEasing</strong></td>
             <td>'linear'</td>
             <td>The easing of the show/reveal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>hideSpeed</strong></td>
             <td>50</td>
             <td>The speed of the hide/conceal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>hideEasing</strong></td>
             <td>'linear'</td>
             <td>The easing of the hide/conceal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>         
           <tr>
             <td><strong>width</strong></td>
             <td>'auto'</td>
             <td>The width that the data will be truncated to - <em>('auto' or px amount)</em></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>ellipsis</strong></td>
             <td>true</td>
             <td>Set to true to enable the ellipsis</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>title</strong></td>
             <td>false</td>
             <td>Set to true to show the full data on hover</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>afterShow</strong></td>
             <td> $.noop</td>
             <td>The callback fired after the show/reveal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
           <tr>
             <td><strong>afterHide</strong></td>
             <td>$.noop</td>
             <td>The callback fired after the hide/conceal</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td> 
+            <td></td>
+            <td></td>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th colspan="5">pour les calcul</th>
+            <th>$667.90</th>
+            <th colspan="5">pour les calcul</th>
+            <th>$667.90</th>
+          </tr>
+        </tfoot>
       </table>
     </div>
 </body>
+<script type="text/javascript">
+  let startYear = 1800;
+  let endYear = new Date().getFullYear();
+  for (i = endYear; i > startYear; i--)
+  {
+    $('#yearpicker').append($('<option />').val(i).html(i));
+  }
+  </script>
 </html>
