@@ -7,11 +7,10 @@ class APTEST(models.Model):
     
     # Libelle: String field
     libelle = models.CharField(max_length=255)
-    
     # AP: Float field
     ap = models.FloatField()
     
-    # annee: Date field (only year)
+    # annee: Date field (only year)  
     annee = models.DateField()
 
     def __str__(self):
