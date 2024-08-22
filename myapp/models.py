@@ -24,11 +24,14 @@ class etat_project(models.Model):
 
 class project(models.Model):
     id_project=models.IntegerField(primary_key=True)
-    nom_project=models.CharField(max_length=150)
-    etablissement_project=models.CharField(max_length=150)
-    definition_project=models.TextField()
+    Libelle=models.CharField(max_length=150)
+    num_indiv=models.CharField(max_length=150)
+    AP_Act=models.FloatField()
+    dp_cum=models.FloatField()
+    PEC=models.FloatField()
+    dp_prev=models.FloatField()
     date_chng=models.DateField()
-    etat_project=models.ForeignKey(etat_project,on_delete=models.CASCADE)
+    etat_project=0
     def __str__(self):
         return f"{self.id_project} {slef.nom_project}"
 

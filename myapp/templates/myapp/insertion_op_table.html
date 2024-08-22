@@ -11,20 +11,8 @@
 </head>
 <body>
   <div class="info-aria">
-    <div>
-      <label for="sector" class="formbold-form-label"> Quelle est le Projet </label>
-      <div class="dropdown">
-        <button class="dropbtn">Selection Projet</button>
-        <div class="dropdown-content">
-            <a href="#">Creation Nouvelle Project</a>
-            <a href="#">BK.2157726</a>
-            <a href="#">FK.12548879</a>
-        </div>
-      </div>
-    </div>
-    <div>
       <div>
-      <label for="info-project" class="formbold-form-label"> Le Projecr Selection Est : </label>
+      <label for="info-project" class="formbold-form-label"> Le Projet Selection Est : </label>
       <input
       type="text"
       name="firstname"
@@ -34,24 +22,16 @@
        disabled/>
       </div>
     </div>
-    <div>
-      <label for="sector" class="formbold-form-label"> Quelle sectore le Projet </label>
-    <select input="text" class="formbold-form-input">
-      <option>Selection le Sector de Projet</option>
-      <option>Media</option>
-      <option>Autre</option>
-    </select>
-    </div>
-  </div>
   <div class="form-aria">
-    <form action="#" method="POST">
+    <form  method="POST" action="{% url 'app_view' %}">
+      {% csrf_token %}
       <div class="formbold-form-step-1 active">
         <div class="formbold-input-flex">
           <div>
               <label for="Numero_Libelle" class="formbold-form-label"> Numero et Libellé d'indidualisation de l'operation </label>
               <input
               type="text"
-              name="Numero_Libelle"
+              name="libelle"
               placeholder="Numero et Libellé d'indidualisation de l'operation"
               id="Numero_Libelle"
               class="formbold-form-input"
@@ -74,7 +54,7 @@
                 <label for="year" class="formbold-form-label"> Annee de Notification par le M F </label>
                 <input 
                 type="date" 
-                name="year" 
+                name="annee" 
                 id="anne_not" 
                 class="formbold-form-input"
                 />
@@ -107,7 +87,7 @@
               <input
               type="number"
                step="0.01"
-              name="AP_init"
+              name="ap"
               id="AP_init"
               class="formbold-form-input"
               />
