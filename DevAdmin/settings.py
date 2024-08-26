@@ -74,16 +74,16 @@ WSGI_APPLICATION = 'DevAdmin.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-     'default':{
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'apbdd',
-        'USER': 'root',
-        'PASSWORD': '',
-        'HOST': 'localhost',  # Or your MySQL server address
-        'PORT': '3306',  # Default MySQL port
-    }
-}
+#DATABASES = {
+#     'default':{
+#        'ENGINE': 'django.db.backends.mysql',
+#        'NAME': 'apbdd',
+#        'USER': 'root',
+#        'PASSWORD': '',
+#        'HOST': 'localhost',  # Or your MySQL server address
+#        'PORT': '3306',  # Default MySQL port
+#    }
+#}
 
 
 # Password validation
@@ -127,7 +127,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Optional: Additional static file directories
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myapp/static'),
+    os.path.join(BASE_DIR, 'static'),
 ]   
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
