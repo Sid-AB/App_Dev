@@ -27,6 +27,7 @@ def app_view(request,id_projet):
       Cntr=request.POST.get('Contraintes')
       if not libelle or not obj_vise or not anne_MF or not anne_indiv or not ap_init or not ap_act or not cml_eng or not cml_pai:
         print('error fo request ',libelle)
+        
         return render(request,'myapp/insertion_op_table.html',{'error':'required field'})
       print('accepted in ',libelle)
       num=libelle+"1"
@@ -45,7 +46,9 @@ def app_view(request,id_projet):
       date_cre_op=date.today(),
       id_project=proj,
       )
-      return render(request,'myapp/insertion_op_table.html',{'successs':'ajouter Projet','id_projet': url})
+      proj=project.objects.get(id_project=url)
+      operations = operation.objects.filter(id_project_id=proj.id_project)
+      return render(request,'myapp/insertion_op_table.html',{'successs':'ajouter Projet','id_projet': url,'opr_list':operations})
 
     return render(request,'myapp/insertion_op_table.html',{'id_projet': url})
 def proj_add(request):
