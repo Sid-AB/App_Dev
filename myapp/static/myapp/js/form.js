@@ -1,3 +1,4 @@
+
 const stepMenuOne = document.querySelector('.formbold-step-menu1')
 const stepMenuTwo = document.querySelector('.formbold-step-menu2')
 const stepMenuThree = document.querySelector('.formbold-step-menu3')

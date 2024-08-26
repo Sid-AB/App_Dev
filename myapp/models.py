@@ -19,11 +19,9 @@ class etat_project(models.Model):
     id_etat=models.IntegerField(primary_key=True)
     nom_etat=models.CharField(max_length=100)
     description=models.TextField()
-    def __str__(self):
-        return self.id_etat
 
 class project(models.Model):
-    id_project=models.IntegerField(primary_key=True)
+    id_project=models.AutoField(primary_key=True)
     Libelle=models.CharField(max_length=150)
     num_indiv=models.CharField(max_length=150)
     AP_Act=models.FloatField()
@@ -31,9 +29,7 @@ class project(models.Model):
     PEC=models.FloatField()
     dp_prev=models.FloatField()
     date_chng=models.DateField()
-    etat_project=0
-    def __str__(self):
-        return f"{self.id_project} {slef.nom_project}"
+    etat_project=models.ForeignKey(etat_project,on_delete=models.CASCADE)
 
 class sector(models.Model):
     id_sect=models.IntegerField(primary_key=True)
@@ -47,7 +43,7 @@ class operation(models.Model):
     num_op=models.CharField(max_length=100)
     object_vise_po=models.TextField()
     notifcation_an_MF_op=models.TextField()
-    indiv_an_op= models.DateField()
+    indiv_an_op= models.TextField()
     AP_init_op=models.FloatField()
     AP_real_op=models.FloatField(default=0.0)
     cum_AP_eng_an_op=models.FloatField(default=0.0)
@@ -55,5 +51,3 @@ class operation(models.Model):
     taux_real_ph_an_op=models.FloatField(default=0.0)
     date_cre_op=models.DateField()
     id_project=models.ForeignKey(project,on_delete=models.CASCADE)
-    def __str__(self):
-        return f"{self.id_libelle_op} ({self.num_op})"

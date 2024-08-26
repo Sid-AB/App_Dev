@@ -27,7 +27,7 @@
         <select name="list_prt" id="list_proj" class="formbold-form-input">
           <option> Selection le projet </option>
           {% for prjt in project %}
-          <option value="{{prjt.name}}">{{prjt.description}}</option>
+          <option value="{{prjt.name}}">{{prjt}}</option>
           {% endfor %}
         </select>
       <div>
@@ -148,7 +148,7 @@
   <div>
     <table>
         <thead>
-          <tr>
+          <tr >
             <th>
               <div style="display: flex; justify-content: space-between; align-items: center;">
                 <span>
@@ -208,7 +208,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>1</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -217,7 +217,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>2</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -226,7 +226,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>2</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -235,7 +235,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>4</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -244,7 +244,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>         
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>5</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -253,7 +253,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>6</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -262,7 +262,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>7</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -271,7 +271,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>8</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -280,7 +280,7 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
-          <tr>
+          <tr class="click-row" data-href="{% url 'app_view' 0 %}">
             <td><strong>9</strong></td>
             <td>Subvention à TDA pour l’acquisition de 280 réémetteurs FM , d’un pylône de 100 mètre et 25 pylônes de 32 mètres </td>
             <td>  NF5.751.2.262.035.24</td>
@@ -289,9 +289,20 @@
             <td>  616 078 </td>
             <td>  </td>
           </tr>
+          {% for projet in list_projet %}
+          <tr class="click-row" data-href="{% url 'app_view' projet.id_project%}">
+          <td></td>
+          <td>{{ projet.Libelle }}</td>
+          <td>{{ projet.num_indiv }}</td>
+          <td>{{ projet.AP_Act }}</td>
+          <td>{{ projet.dp_cum }} </td>
+          <td>{{ projet.PEC }}</td>
+          <td>{{ projet.dp_prev }}</td>
+          </tr>
+          {% endfor %}
         </tbody>
         <tfoot>
-          <tr>
+          <tr class="click-row">
             <th colspan="5">pour les calcul</th>
             <th>$667.90</th>
             <th colspan="5">pour les calcul</th>
@@ -308,5 +319,16 @@
   {
     $('#yearpicker').append($('<option />').val(i).html(i));
   }
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  const rows = document.querySelectorAll("tr.click-row");
+  rows.forEach(row => {
+      row.addEventListener("click", function() {
+          const url = this.dataset.href;
+          window.location.href = url;
+      });
+  });
+});
   </script>
 </html>
